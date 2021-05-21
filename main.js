@@ -26,6 +26,7 @@ navbarMenu.addEventListener('click', (event) => {
 })
 
 // Hadle click on "contact me" button on home 
+// contact me 를 클릭하면 contact으로 이동하기
 const homeContactBtn = document.querySelector('.home__contact');
 homeContactBtn.addEventListener('click', () => {
     // console.log(event.target.dataset.link);
@@ -33,7 +34,19 @@ homeContactBtn.addEventListener('click', () => {
 
 });
 
+
+// Make home slowy fade to trasparent as the window scrolls down
+// 스크롤할때 홈 화면이 투명해지게 만들기 
+const home = document.querySelector('.home__container');
+const homeheight = home.getBoundingClientRect().height;
+document.addEventListener('scroll', () => {
+    home.style.opacity = 1 - window.scrollY / homeheight;
+});
+
+
+
+
 function scrollIntoView(selector) {
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({ behavior: 'smooth' });
-}
+};
