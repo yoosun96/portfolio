@@ -43,7 +43,21 @@ document.addEventListener('scroll', () => {
     home.style.opacity = 1 - window.scrollY / homeheight;
 });
 
+// Show "arrow up" button when scrolling down
+// 스크롤시 맨위로버튼이 나타나기
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll', () => {
+    if (window.scrollY > homeheight / 2) {
+        arrowUp.classList.add('visible');
+    } else {
+        arrowUp.classList.remove('visible');
+    }
+})
 
+// Handle click on the "arrow up" button
+arrowUp.addEventListener('click', () => {
+    scrollIntoView('#home');
+})
 
 
 function scrollIntoView(selector) {
