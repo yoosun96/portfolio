@@ -126,12 +126,15 @@
  .navbar__menu__item {
      padding: 8px 12px;
      margin: 0 4px;
+     color: var(--color-white);
      cursor: pointer;
      border-radius: var(--size-border-radius);
-     border: 1px solid transparent;
-     border-radius: var(--size-border-radius);
+     
  }
 
+ .navbar__menu__item.active{
+    border: 1px solid var(--color-white);
+ }
 
  .navbar__menu__item:hover {
      border-color: var(--color-white);
@@ -185,7 +188,7 @@
 
  /* Section common */
  .section {
-     padding: 50px;
+     padding: 65px 50px 50px 50px;
      text-align: center;
  }
 
@@ -549,7 +552,7 @@
 
      .section {
          padding: 16px;
-         padding-top: 40px;
+         padding-top: 60px;
      }
 
      .about__majors {

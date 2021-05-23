@@ -1,6 +1,7 @@
 'use strict';
 
 // Make navbar trasnparent when it is on the top
+// 메뉴바가 최상단에 있을때 투명하게 하기
 const navbar = document.querySelector('#navbar');
 const navbarHeight = navbar.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
@@ -12,6 +13,7 @@ document.addEventListener('scroll', () => {
 });
 
 // Handle scrolling when tapping on the navbar menu
+// 메뉴바 스크롤할때 색이 나타나게 하기
 const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (event) => {
     const target = event.target;
@@ -21,9 +23,11 @@ navbarMenu.addEventListener('click', (event) => {
     }
     navbarMenu.classList.remove('open');
     scrollIntoView(link);
+    selectNavItem(target);
 });
 
 // Navbar toggle button for small screen
+// 반응형으로 지정크기로 작아지면 메뉴가 눈에보이지 않고 메뉴버튼을 보이게하기
 const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
 navbarToggleBtn.addEventListener('click', () => {
     navbarMenu.classList.toggle('open');
@@ -59,6 +63,7 @@ document.addEventListener('scroll', () => {
 })
 
 // Handle click on the "arrow up" button
+// 맨위로버튼 누르면 홈으로 가기
 arrowUp.addEventListener('click', () => {
     scrollIntoView('#home');
 })
@@ -75,6 +80,7 @@ workBtnContainer.addEventListener('click', (e) => {
     }
 
     //Romove selections from the previous item and select the new one
+    // 클릭한 프로젝트만 선택되어있도록 하기
     const active = document.querySelector('.category__btn.selected');
     active.classList.remove('selected');
     const target = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
@@ -97,7 +103,66 @@ workBtnContainer.addEventListener('click', (e) => {
 
 
 
+
+// 1. 모든 섹션 요소들과 메뉴아이템들을 가지고 온다
+// 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다
+// 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다
+const sectionIds = [
+    '#home',
+    '#about',
+    '#skills',
+    '#work',
+    '#testimonials',
+    '#contact',
+];
+
+const sections = sectionIds.map(id => document.querySelector(id));
+const navItems = sectionIds.map(id =>
+    document.querySelector(`[data-link="${id}"]`)
+);
+
+let selectedNavIndex = 0;
+let selectedNavItem = navItems[0];
+function selectNavItem(selected) {
+    selectedNavItem.classList.remove('active');
+    selectedNavItem = selected;
+    selectedNavItem.classList.add('active');
+}
+
 function scrollIntoView(selector) {
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({ behavior: 'smooth' });
+    selectNavItem(navItems[sectionIds.indexOf(selector)]);
 };
+
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3,
+}
+
+const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+            const index = sectionIds.indexOf(`#${entry.target.id}`);
+
+            // 스크롤링이 아래로 되어서 페이지가 올라옴
+            if (entry.boundingClientRect.y < 0) {
+                selectedNavIndex = index + 1;
+            } else {
+                selectedNavIndex = index - 1;
+            }
+        }
+    });
+};
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach(section => observer.observe(section));
+
+window.addEventListener('wheel', () => {
+    if (window.scrollY === 0) {
+        selectedNavIndex = 0;
+    } else if (window.scrollY + window.innerHeight === document.body.clientHeight) {
+        selectedNavIndex = navItems.length - 1;
+    }
+    selectNavItem(navItems[selectedNavIndex]);
+})
