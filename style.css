@@ -12,11 +12,16 @@
   --color-blue: #73aace;
   --color-royal-blue: #4169e1;
   --color-yellow: #fff7d1;
+  --color-deep-yellow: #ffe086;
   --color-orange: #feb546;
   --color-black: #000000;
   --color-dark-olive-green: #556b2f;
-  --color-tomato: #ff6347;
+  --color-indian-red: #cd5c5c;
+  --color-light-red: #ff5e46;
   --color-cocoa-brown: #867d79;
+  --color-beige: #fff8e1;
+  --color-dark-beige: #a19075;
+  --color-light-purple: #ccccff;
 
   /* Font Size */
   --font-large: 48px;
@@ -43,7 +48,7 @@
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin: 0;
   cursor: default;
 }
@@ -112,7 +117,7 @@ p {
 }
 
 #navbar.navbar--dark {
-  background-color: var(--color-orange);
+  background-color: var(--color-indian-red);
   padding: 8px;
 }
 
@@ -138,8 +143,9 @@ p {
 }
 
 .navbar__menu__item:hover {
-  border-color: var(--color-white);
-  background-color: var(--color-dark-gray);
+  border-color: var(--color-beige);
+  background-color: var(--color-yellow);
+  color: var(--color-black);
 }
 
 .navbar__toggle-btn {
@@ -153,7 +159,7 @@ p {
 
 /* Home */
 #home {
-  background: url("imgs/home-background.png") center/cover no-repeat;
+  background: url('imgs/home-background.png') center/cover no-repeat;
   padding: 40px;
   padding-top: 120px;
   text-align: center;
@@ -163,7 +169,6 @@ p {
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  border: 1px solid var(--color-light-gray);
 }
 
 .home__title,
@@ -182,7 +187,8 @@ p {
 }
 
 .home__contact:hover {
-  background-color: var(--color-dark-pink);
+  background-color: var(--color-orange);
+  color: var(--color-white);
 }
 
 /* Section common */
@@ -209,8 +215,8 @@ p {
   line-height: 170px;
   font-size: 70px;
   margin: auto;
-  color: var(--color-tomato);
-  border: 1px solid var(--color-tomato);
+  color: var(--color-indian-red);
+  border: 1px solid var(--color-indian-red);
   border-radius: 50%;
   margin-bottom: 16px;
 }
@@ -220,7 +226,7 @@ p {
 }
 
 .major__icon i:hover {
-  color: var(--color-pink);
+  color: var(--color-indian-red);
   transform: rotate(-30deg) scale(1.1);
 }
 
@@ -410,7 +416,7 @@ p {
 }
 
 .project__description h3:after {
-  content: "";
+  content: '';
   display: block;
   position: relative;
   left: 50%;
@@ -422,8 +428,10 @@ p {
 }
 
 /* Contact */
+
 #contact {
-  background-color: var(--color-cocoa-brown);
+  background-color: var(--color-indian-red);
+  padding: 40px;
 }
 
 .contact__title,
@@ -433,12 +441,12 @@ p {
 }
 
 .contact__title {
-  margin: 32px 0;
+  margin: 2px 0;
 }
 
 .contact__links {
-  font-size: var(--font-large);
-  margin: 24px 0;
+  font-size: var(--font-medium);
+  margin: 8px 0;
   transition: all var(--animation-duration) ease-in;
 }
 
@@ -452,11 +460,11 @@ p {
   position: fixed;
   bottom: 50px;
   right: 50px;
-  width: 70px;
-  height: 70px;
-  font-size: 50px;
-  background-color: var(--color-orange);
-  color: var(--color-white);
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  background-color: var(--color-deep-yellow);
+  color: var(--color-black);
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
@@ -489,7 +497,7 @@ p {
   #navbar {
     flex-direction: column;
     align-items: flex-start;
-    background-color: var(--color-orange);
+    background-color: var(--color-right-purple);
   }
 
   #navbar.navbar--dark {
