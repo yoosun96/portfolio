@@ -187,8 +187,7 @@ p {
 }
 
 .home__contact:hover {
-  background-color: var(--color-orange);
-  color: var(--color-white);
+  background-color: var(--color-indian-red);
 }
 
 /* Section common */
