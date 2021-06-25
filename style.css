@@ -48,7 +48,7 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Nunito', sans-serif;
   margin: 0;
   cursor: default;
 }
@@ -184,6 +184,7 @@ p {
   padding: 8px 12px;
   border: 2px solid var(--color-white);
   border-radius: 4px;
+  font-family: 'Nunito', sans-serif;
 }
 
 .home__contact:hover {
@@ -328,6 +329,7 @@ p {
   font-size: var(--font-regular);
   padding: 8px 48px;
   position: relative;
+  font-family: 'Nunito', sans-serif;
 }
 
 .category__btn.active,
