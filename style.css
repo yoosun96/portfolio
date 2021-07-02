@@ -171,8 +171,7 @@ p {
   border-radius: 50%;
 }
 
-.home__title,
-.home__description {
+.home__title {
   color: var(--color-white);
 }
 
@@ -206,15 +205,15 @@ p {
 /* About */
 .about__majors {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 80px 0;
 }
 
 .major__icon {
-  width: 170px;
-  height: 170px;
-  line-height: 170px;
-  font-size: 70px;
+  width: 220px;
+  height: 220px;
+  line-height: 230px;
+  font-size: 120px;
   margin: auto;
   color: var(--color-indian-red);
   border: 1px solid var(--color-indian-red);
