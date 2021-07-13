@@ -236,29 +236,6 @@ p {
   font-size: var(--font-small);
 }
 
-.job {
-  display: flex;
-  align-items: center;
-}
-
-.job__description {
-  margin: 0 16px;
-  text-align: left;
-}
-
-.job__name,
-.job__period {
-  color: var(--color-light-gray);
-}
-
-.job__name {
-  font-size: var(--font-small);
-}
-
-.job__period {
-  font-size: var(--font-micro);
-}
-
 /* Skills */
 #skills {
   background-color: var(--color-yellow);
